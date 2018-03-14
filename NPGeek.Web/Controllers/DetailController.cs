@@ -29,7 +29,7 @@ namespace NPGeek.Web.Controllers
 
         public ActionResult PartialWeather(string id)
         {
-            WeatherModel f = dal2.ParkWeather(id);
+            List<WeatherModel> f = dal2.ParkWeather(id);
             return PartialView("PartialWeather", f);
         }
     }

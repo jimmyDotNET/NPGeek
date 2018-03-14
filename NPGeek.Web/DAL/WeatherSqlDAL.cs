@@ -12,9 +12,9 @@ namespace NPGeek.Web.DAL
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public WeatherModel ParkWeather(string parkCode)
+        public List<WeatherModel> ParkWeather(string parkCode)
         {
-            
+            List<WeatherModel> weather = new List<WeatherModel>();
 
             try
             {
@@ -38,15 +38,16 @@ namespace NPGeek.Web.DAL
                         w.High = Convert.ToInt32(reader["high"]);
                         w.Forecast = Convert.ToString(reader["forecast"]);
 
-                        return w;
+                        weather.Add(w);
                     }
                 }
+
             }
             catch (SqlException)
             {
 
             }
-            return null;
+            return weather;
         }
     }
 }

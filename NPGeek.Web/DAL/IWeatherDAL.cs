@@ -9,7 +9,7 @@ namespace NPGeek.Web.DAL
 {
     public interface IWeatherDAL
     {
-        //List<WeatherModel> ParkWeather();
-        WeatherModel ParkWeather(string parkCode);
+        List<WeatherModel> ParkWeather(string parkCode);
+        //WeatherModel ParkWeather(string parkCode);
     }
 }

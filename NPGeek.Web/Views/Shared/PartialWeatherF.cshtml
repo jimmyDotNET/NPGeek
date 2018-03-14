@@ -5,14 +5,7 @@
 }
 
 
-<form action="@Url.Action("PartialWeather", "Detail")" method="get">
-    @Html.RadioButton("Fahrenheit", Model);
-    @Html.RadioButton("Celcius", Model);
-
-    <button>Submit</button>
-</form>
-
-@*<div class="today">
+<div class="today">
     <h3>Today:</h3>
     <img src="~/Content/@(img).png" />
     <p>High @(Model[0].High) F</p>
@@ -28,7 +21,7 @@
         <p>High @(Model[i].High) F</p>
         <p>Low @(Model[i].Low) F</p>
     }
-</div>*@
+</div>
 
 
 

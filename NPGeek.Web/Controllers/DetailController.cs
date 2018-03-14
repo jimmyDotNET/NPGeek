@@ -32,5 +32,17 @@ namespace NPGeek.Web.Controllers
             List<WeatherModel> f = dal2.ParkWeather(id);
             return PartialView("PartialWeather", f);
         }
+
+        public ActionResult PartialWeatherF(string id)
+        {
+            List<WeatherModel> f = dal2.ParkWeather(id);
+            return PartialView("PartialWeather", f);
+        }
+
+        public ActionResult PartialWeatherC(string id)
+        {
+            List<WeatherModel> f = dal2.ParkWeather(id);
+            return PartialView("PartialWeather", f);
+        }
     }
 }

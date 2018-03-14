@@ -1,0 +1,20 @@
+﻿@model List<NPGeek.Web.Models.ParkModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="parks">
+    @foreach(var park in Model)
+    {
+        <div class="park-image">
+            <form action="@Url.Action("ParkDetail", "Detail")" method="get">
+                <img id="main-park" src="~/Content/@(park.ParkCode).jpg" />
+                <h2 id="main-name">@park.ParkName</h2>
+                <p id="main-description">@park.ParkDescription</p>
+            </form>
+        </div>
+    }
+
+</section>
+

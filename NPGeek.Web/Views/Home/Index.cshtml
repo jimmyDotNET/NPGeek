@@ -8,7 +8,7 @@
     @foreach(var park in Model)
     {
         <div class="park-image">
-            <form action="@Url.Action("ParkDetail", "Detail")" method="get">
+            <form action="@Url.Action("Index", "Home")" method="get">
                 <img id="main-park" src="~/Content/@(park.ParkCode).jpg" />
                 <h2 id="main-name">@park.ParkName</h2>
                 <p id="main-description">@park.ParkDescription</p>

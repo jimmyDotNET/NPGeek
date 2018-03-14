@@ -22,7 +22,15 @@ namespace NPGeek.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT parkCode, parkName, parkDescription FROM park", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ParkModel park = ParkReader(reader);
+                        parks.Add(park);
+                    }
                 }
             }
             catch (SqlException)
@@ -30,6 +38,16 @@ namespace NPGeek.Web.DAL
 
             }
             return parks;
+        }
+
+        private ParkModel ParkReader(SqlDataReader reader)
+        {
+            return new ParkModel()
+            {
+                ParkCode = Convert.ToString(reader["parkCode"]),
+                ParkName = Convert.ToString(reader["parkName"]),
+                ParkDescription = Convert.ToString(reader["parkDescription"])
+            };
         }
     }
 }

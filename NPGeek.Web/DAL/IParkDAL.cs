@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace NPGeek.Web.DAL
 {
-    interface IParkDAL
+    public interface IParkDAL
     {
         List<ParkModel> GetAllParks();
-        
+ 
     }
 }

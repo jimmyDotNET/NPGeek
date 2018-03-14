@@ -10,6 +10,7 @@ namespace NPGeek.Web.DAL
     public interface IParkDAL
     {
         List<ParkModel> GetAllParks();
- 
+
+        ParkModel GetParkDetail(string parkCode);
     }
 }

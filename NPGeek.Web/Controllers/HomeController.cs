@@ -23,5 +23,9 @@ namespace NPGeek.Web.Controllers
             return View("Index", p);
         }
 
+        //public ActionResult GetParkDetails(string id)
+        //{
+
+        //}
     }
 }

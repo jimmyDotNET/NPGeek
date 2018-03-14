@@ -1,4 +1,4 @@
-﻿
+﻿@model NPGeek.Web.Models.ParkModel
 @{
     ViewBag.Title = "ParkDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,10 @@
 
 <h2>ParkDetail</h2>
 
+<section id="parks">
+
+        <h2>@Model.ParkName</h2>
+
+        <img id="main-park" src="~/Content/@(Model.ParkCode.ToLower()).jpg">
+
+</section>

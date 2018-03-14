@@ -1,0 +1,12 @@
+﻿@model NPGeek.Web.Models.WeatherModel
+@{
+    Layout = null;
+    string img = Model.Forecast.Replace(" ", "");
+}
+
+<div class="today">
+
+    <img src="~/Content/@(img).png" />
+
+
+</div>

@@ -113,7 +113,7 @@
     <Content Include="Content\gtnp.jpg" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\mrnp.jpg" />
-    <Content Include="Content\partlyCloudy.png" />
+    <Content Include="Content\partlycloudy.png" />
     <Content Include="Content\rain.png" />
     <Content Include="Content\rmnp.jpg" />
     <Content Include="Content\scenery.png" />
@@ -133,11 +133,14 @@
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\IParkDAL.cs" />
+    <Compile Include="DAL\IWeatherDAL.cs" />
     <Compile Include="DAL\ParkSqlDAL.cs" />
+    <Compile Include="DAL\WeatherSqlDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ParkModel.cs" />
+    <Compile Include="Models\WeatherModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +149,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Detail\ParkDetail.cshtml" />
+    <Content Include="Views\Shared\PartialWeather.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

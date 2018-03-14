@@ -11,9 +11,12 @@ namespace NPGeek.Web.Controllers
     public class DetailController : Controller
     {
         private IParkDAL dal;
-        public DetailController(IParkDAL dal)
+        private IWeatherDAL dal2;
+
+        public DetailController(IParkDAL dal, IWeatherDAL dal2)
         {
             this.dal = dal;
+            this.dal2 = dal2;
         }
 
         // GET: Detail
@@ -22,6 +25,12 @@ namespace NPGeek.Web.Controllers
             ParkModel park; 
 
             return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
+        }
+
+        public ActionResult PartialWeather(string id)
+        {
+            WeatherModel f = dal2.ParkWeather(id);
+            return PartialView("PartialWeather", f);
         }
     }
 }

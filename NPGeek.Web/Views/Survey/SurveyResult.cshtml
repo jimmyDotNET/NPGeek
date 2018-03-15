@@ -1,5 +1,17 @@
-﻿@{
+﻿@model List<NPGeek.Web.Models.ParkModel> 
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<section id="parks">
 
+
+    @foreach (var park in Model)
+    {
+        <p>@park.ParkName</p>
+
+    }
+
+
+</section>

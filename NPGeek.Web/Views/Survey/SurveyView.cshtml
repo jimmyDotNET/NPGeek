@@ -4,9 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form action="@Url.Action("SurveyResult", "Survey")">
+<form action="@Url.Action("SurveyResult")" method="post">
 
-    @Html.TextBoxFor(x => x.ParkName, new { placeholder = "Enter a park name" })
+    <select name="parkCode">
+
+        @foreach (var park in Model.Parks)
+        {
+            <option value="@park.ParkCode">@park.ParkName</option>
+        }
+
+    </select>
+
+    @*@Html.DropDownList("selectedPark"x => x.ParkName, new { placeholder = "Enter a park name" })*@
     @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail" })
     @Html.TextBoxFor(x => x.State, new { placeholder = "Enter your State of Residence" })
     @Html.TextBoxFor(x => x.ActivityLevel, new { placeholder = "Enter your activity level" })

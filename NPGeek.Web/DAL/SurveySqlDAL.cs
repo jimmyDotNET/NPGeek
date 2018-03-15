@@ -20,44 +20,69 @@ namespace NPGeek.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"INSERT into survey_result (surveyId, parkCode, parkName, emailAddress, state, activityLevel) VALUES (@surveyId, @parkCode, @parkName, @emailAddress, @state, @activityLevel)", conn);
-                    cmd.Parameters.AddWithValue("@surveyId", survey.SurveyID);
+                    SqlCommand cmd = new SqlCommand(@"INSERT into survey_result (parkCode, emailAddress, state, activityLevel) VALUES ( @parkCode, @emailAddress, @state, @activityLevel)", conn);
                     cmd.Parameters.AddWithValue("@parkCode", survey.ParkCode);
-                    cmd.Parameters.AddWithValue("@parkName", survey.ParkName);
                     cmd.Parameters.AddWithValue("@emailAddress", survey.Email);
                     cmd.Parameters.AddWithValue("@state", survey.State);
                     cmd.Parameters.AddWithValue("@activityLevel", survey.ActivityLevel);
 
                     cmd.ExecuteNonQuery();
 
-                    SurveyCount(survey);
                     return true;
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-
+                throw ex;
             }
             return false;
         }
 
-        public Dictionary<string, int> SurveyCount(SurveyModel survey)
+        public List<SurveyResult> GetSurveyCount()
         {
-            Dictionary<string, int> output = new Dictionary<string, int>();
-
-            foreach (var kvp in output)
+            List<SurveyResult> results = new List<SurveyResult>();
+            try
             {
-                if (output.ContainsKey(survey.ParkCode))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    output[survey.ParkCode] = TotalSurveys(survey.ParkCode);
-                }
-                else
-                {
-                    output.Add(survey.ParkCode, 1);
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand("select parkName, survey_result.parkCode, count(*) as voteCount from survey_result JOIN park ON park.parkCode = survey_result.parkCode GROUP BY survey_result.parkCode, parkName ORDER BY voteCount DESC;", conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        SurveyResult contents = new SurveyResult();
+
+                        contents.ParkName = Convert.ToString(reader["parkName"]);
+                        contents.ParkCode = Convert.ToString(reader["parkCode"]);
+                        contents.VoteCount = Convert.ToInt32(reader["voteCount"]);
+
+                        results.Add(contents);
+                    }
+
                 }
             }
+            catch (SqlException ex)
+            {
 
-            return output;
+            }
+            return results;
+
+            // Call the database and get the number of votes per park
+
+            //List<SurveyModel> surveys = new List<SurveyModel>();
+
+            //foreach (var park in survey.Parks)
+            //{
+            //    SurveyModel temp = new SurveyModel();
+            //    temp.VoteCount = TotalSurveys(park.ParkCode);
+            //    temp.ParkCode = park.ParkCode;
+            //    temp.ParkName = park.ParkName;
+            //    surveys.Add(temp);
+            //}
+
+            //return surveys;
         }
 
         public int TotalSurveys(string parkCode)
@@ -70,15 +95,15 @@ namespace NPGeek.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"SELECT COUNT(parkCode) AS @voteCount FROM survey_result WHERE @parkCode = parkCode", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT COUNT(parkCode) AS Count FROM survey_result WHERE @parkCode = parkCode GROUP BY parkCode", conn);
                     cmd.Parameters.AddWithValue("@parkCode", parkCode);
-                    cmd.Parameters.AddWithValue("@voteCount", voteCount);
+
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        voteCount = Convert.ToInt32(reader["@voteCount"]);
+                        voteCount = Convert.ToInt32(reader["Count"]);
                     }
                 }
             }

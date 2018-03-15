@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form action="@Url.Action("SurveyResult")" method="post">
+<form action="@Url.Action("SurveyView")" method="post">
 
     <select name="parkCode">
 
@@ -14,7 +14,7 @@
         }
 
     </select>
-
+    
     @*@Html.DropDownList("selectedPark"x => x.ParkName, new { placeholder = "Enter a park name" })*@
     @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail" })
     @Html.TextBoxFor(x => x.State, new { placeholder = "Enter your State of Residence" })

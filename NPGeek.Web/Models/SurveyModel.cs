@@ -14,5 +14,6 @@ namespace NPGeek.Web.Models
         public string ActivityLevel { get; set; }
         public List<ParkModel> Parks { get; set; }
         public string ParkName { get; set; }
+        public int VoteCount { get; set; }
     }
 }

@@ -30,9 +30,17 @@ namespace NPGeek.Web.Controllers
 
             survey.Parks = parks;
 
-            surveyDal.MakePost(survey);
+            //surveyDal.MakePost(survey);
 
             return View("SurveyView", survey);
+        }
+
+        [HttpPost]
+        public ActionResult SurveyView(SurveyModel survey)
+        {
+            surveyDal.MakePost(survey);
+
+            return RedirectToAction("SurveyResult");
         }
 
 
@@ -40,7 +48,7 @@ namespace NPGeek.Web.Controllers
         public ActionResult SurveyResult(SurveyModel survey)
         {
 
-            List<ParkModel> favParks = survey.Parks;
+            var favParks = surveyDal.GetSurveyCount();
 
             return View("SurveyResult", favParks);
         }

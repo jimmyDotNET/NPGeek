@@ -1,4 +1,4 @@
-﻿@model List<NPGeek.Web.Models.ParkModel> 
+﻿@model List<NPGeek.Web.Models.SurveyResult>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,10 @@
 
     @foreach (var park in Model)
     {
+        <img src="~/Content/@(park.ParkCode).jpg" />
+
         <p>@park.ParkName</p>
+        <p>@park.VoteCount</p>
 
     }
 

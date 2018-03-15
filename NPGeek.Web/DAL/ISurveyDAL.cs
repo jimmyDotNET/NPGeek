@@ -9,6 +9,6 @@ namespace NPGeek.Web.DAL
 {
     public interface ISurveyDAL
     {
-        void MakePost(SurveyModel survey);
+        bool MakePost(SurveyModel survey);
     }
 }

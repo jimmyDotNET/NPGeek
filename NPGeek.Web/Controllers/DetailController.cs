@@ -44,5 +44,23 @@ namespace NPGeek.Web.Controllers
             List<WeatherModel> f = dal2.ParkWeather(id);
             return PartialView("PartialWeather", f);
         }
+
+        //THIS IS WHERE THE SESSION CODE STARTS
+        public WeatherModel GetCorrectTemp()
+        {
+            WeatherModel weather = null;
+
+            if(Session["Partial_Weather"]== null)
+            {
+                weather = new WeatherModel();
+                Session["Partial_Weather"] = weather;
+            }
+            else
+            {
+                weather = Session["Partial_Weather"] as WeatherModel;
+            }
+
+            return weather;
+        }
     }
 }

@@ -25,6 +25,12 @@
 
     </ul>
 
+    <form action="@Url.Action("ParkDetail", "Detail")" method="post">
+        <input type="radio" name="sessionC" value="Celcius" /><span>Celcius</span>
+        <input type="radio" name="sessionF" value="Fahrenheit" /><span>Fahrenheit</span>
+        <input type="hidden" name="sessionF" value="PartialWeather">
+        <button>GO!</button>
+    </form>
 
     @*@if (Session["Partial_Weather"] == null)
     {
@@ -51,14 +57,14 @@
     </form>
 
 
-    @if (Session["Partial_Weather"] == null)
-    {
-        @Html.Action("PartialWeatherF");
-    }
-    else
-    {
-        @Html.Action("PartialWeather");
-    }
+        @if (Session["Partial_Weather"] == null)
+        {
+            @Html.Action("PartialWeatherF");
+        }
+        else
+        {
+            @Html.Action("PartialWeather");
+        }*@
 
 
 

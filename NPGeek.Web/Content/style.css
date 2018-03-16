@@ -1,2 +1,48 @@
 ﻿body {
+  margin: 0;
 }
+
+img#main-logo {
+    width: 100%;
+}
+ul {
+    width: 100%;
+    height: 5rem;
+    list-style-type: none;
+    background-color: #5e3b04;
+    
+}
+
+li {
+    width: 5rem;
+    height: 5rem;
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 50px;
+    background-color: #5e3b04;
+    padding-top: 10px;
+}
+
+a{
+    color: white;
+}
+
+img#main-park {
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.main-info {
+    display: inline-block;
+    vertical-align: top;
+    width: 55%;
+    
+}
+
+/*p#main-description {
+    display: inline-block;
+    width: 55%;
+    position: relative;
+
+}*/

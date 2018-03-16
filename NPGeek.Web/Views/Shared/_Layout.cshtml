@@ -15,13 +15,12 @@
 
 <body>
     <header>
-        <img src="~/Content/logo.png" alt="NPS Logo">
-        <h1>National Park Geek</h1>
+        <img id="main-logo" src="~/Content/logo.png" alt="NPS Logo">
     </header>
     <nav>
         <ul>
-            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-            <li>@Html.ActionLink("Survey", "SurveyView", "Survey")</li>
+            <li id="1">@Html.ActionLink("HOME", "Index", "Home")</li>
+            <li id="2">@Html.ActionLink("SURVEY", "SurveyView", "Survey")</li>
            
         </ul>
     </nav>

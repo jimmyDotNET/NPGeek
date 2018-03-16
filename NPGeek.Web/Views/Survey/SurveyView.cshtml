@@ -18,7 +18,13 @@
     @*@Html.DropDownList("selectedPark"x => x.ParkName, new { placeholder = "Enter a park name" })*@
     @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail" })
     @Html.TextBoxFor(x => x.State, new { placeholder = "Enter your State of Residence" })
-    @Html.TextBoxFor(x => x.ActivityLevel, new { placeholder = "Enter your activity level" })
+    @*@Html.TextBoxFor(x => x.ActivityLevel, new { placeholder = "Enter your activity level" })*@
+    <select>
+        <option value="@Model.ActivityLevel">Inactive</option>
+        <option value="@Model.ActivityLevel">Sedentary</option>
+        <option value="@Model.ActivityLevel">Active</option>
+        <option value="@Model.ActivityLevel">Extremely Active</option>
+    </select>
 
     <button>Submit Survey</button>
 

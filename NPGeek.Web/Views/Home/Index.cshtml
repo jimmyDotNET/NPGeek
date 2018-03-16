@@ -9,8 +9,10 @@
     {
         <div class="park-image">
                 <a href="@Url.Action("ParkDetail", "Detail",  new { id = park.ParkCode})"><img id="main-park" src="~/Content/@(park.ParkCode).jpg"></a>
-                <h2 id="main-name">@park.ParkName</h2>
-                <p id="main-description">@park.ParkDescription</p>
+                <div class="main-info">
+                    <h2 id="main-name">@park.ParkName</h2>
+                    <p id="main-description">@park.ParkDescription</p>
+                </div>
         </div>
     }
 </section>

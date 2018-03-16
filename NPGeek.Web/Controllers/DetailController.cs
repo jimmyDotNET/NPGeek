@@ -35,13 +35,21 @@ namespace NPGeek.Web.Controllers
             return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
         }
 
-        [HttpPost]
-        public ActionResult ParkDetail(string id, string sessionF)
-        {
-            ParkModel park;
-            Session["Partial_Weather"] = sessionF;
-            return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
-        }
+      
+        //[HttpPost]
+        //public ActionResult ParkDetail(string id, string sessionF, string sessionC)
+        //{
+        //    ParkModel park;
+        //    if (Session["Partial_Weather"] == null)
+        //    {
+        //        Session["Partial_Weather"] = sessionF;
+        //    }
+        //    else
+        //    {
+        //        Session["Partial_Weather"] = sessionC;
+        //    }
+        //    return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
+        //}
 
         public ActionResult PartialWeatherF(string id)
         {

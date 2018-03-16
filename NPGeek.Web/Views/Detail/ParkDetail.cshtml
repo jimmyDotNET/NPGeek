@@ -25,34 +25,40 @@
 
     </ul>
 
+    <form action="@Url.Action("ParkDetail", "Detail")" method="post">
+        <input type="radio" name="sessionC" value="Celcius" /><span>Celcius</span>
+        <input type="radio" name="sessionF" value="Fahrenheit" /><span>Fahrenheit</span>
+        <input type="hidden" name="sessionF" value="PartialWeather">
+        <button>GO!</button>
+    </form>
 
-    @if (Session["Partial_Weather"] == null)
-    {
+        @*@if (Session["Partial_Weather"] == null)
+        {
 
-        <form action="@Url.Action("ParkDetail", "Detail")" method="post">
-            <input type="hidden" name="sessionC" value="PartialWeather" />
-            <button name="celsius">View in Celsius</button>
-        </form>
-        @Html.Action("PartialWeatherF");
-    }
-    else
-    {
-        <form action="@Url.Action("ParkDetail", "Detail")" method="post">
-            <input type="hidden" name="sessionF" value="PartialWeatherF">
-            <button name="fahrenheit">View in Fahrenheit</button>
-        </form>
-        @Html.Action("PartialWeather");
-    }
+            <form action="@Url.Action("ParkDetail", "Detail")" method="post">
+                <input type="hidden" name="sessionC" value="PartialWeather" />
+                <button name="celsius">View in Celsius</button>
+            </form>
+            @Html.Action("PartialWeatherF");
+        }
+        else
+        {
+            <form action="@Url.Action("ParkDetail", "Detail")" method="post">
+                <input type="hidden" name="sessionF" value="PartialWeatherF">
+                <button name="fahrenheit">View in Fahrenheit</button>
+            </form>
+            @Html.Action("PartialWeather");
+        }
 
 
-    @if (Session["Partial_Weather"] == null)
-    {
-        @Html.Action("PartialWeatherF");
-    }
-    else
-    {
-        @Html.Action("PartialWeather");
-    }
+        @if (Session["Partial_Weather"] == null)
+        {
+            @Html.Action("PartialWeatherF");
+        }
+        else
+        {
+            @Html.Action("PartialWeather");
+        }*@
 
 
 

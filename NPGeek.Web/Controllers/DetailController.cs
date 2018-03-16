@@ -27,34 +27,52 @@ namespace NPGeek.Web.Controllers
             return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
         }
 
-        //public ActionResult PartialWeatherF(string id)
-        //{
-        //    List<WeatherModel> f = dal2.ParkWeather(id);
-        //    return PartialView("PartialWeatherF", f);
-        //}
+        [HttpPost]
+        public ActionResult ParkDetail(string id, string sessionC)
+        {
+            ParkModel park;
+            Session["Partial_Weather"] = sessionC;
+            return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
+        }
+
+        [HttpPost]
+        public ActionResult ParkDetail(string id, string sessionF)
+        {
+            ParkModel park;
+            Session["Partial_Weather"] = sessionF;
+            return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
+        }
+
+        public ActionResult PartialWeatherF(string id)
+        {
+
+            List<WeatherModel> f = dal2.ParkWeather(id);
+            return View("PartialWeatherF", f);
+        }
 
         public ActionResult PartialWeather(string id)
         {
-            List<WeatherModel> c = dal2.ParkWeather(id);
-            return PartialView("PartialWeather", c);
+            List<WeatherModel> f = dal2.ParkWeather(id);
+            return View("PartialWeather", f);
         }
 
-        //THIS IS WHERE THE SESSION CODE STARTS
-        public WeatherModel GetCorrectTemp()
-        {
-            WeatherModel weather = null;
+        ////THIS IS WHERE THE SESSION CODE STARTS
+        //public WeatherModel GetCorrectTemp()
+        //{
+        //    WeatherModel weather = null;
 
-            if(Session["Partial_Weather"]== null)
-            {
-                weather = new WeatherModel();
-                Session["Partial_Weather"] = weather;
-            }
-            else
-            {
-                weather = Session["Partial_Weather"] as WeatherModel;
-            }
+        //    if (Session["Partial_Weather"] == null)
+        //    {
+        //        weather = new WeatherModel();
+        //        Session["Partial_Weather"] = weather;
+        //    }
 
-            return weather;
-        }
+        //    else
+        //    {
+        //        weather = Session["Partial_Weather"] as WeatherModel;
+        //    }
+
+        //    return weather;
+        //}
     }
 }

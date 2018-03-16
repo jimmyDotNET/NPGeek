@@ -148,6 +148,7 @@
     <Compile Include="Models\ParkModel.cs" />
     <Compile Include="Models\SurveyModel.cs" />
     <Compile Include="Models\SurveyResult.cs" />
+    <Compile Include="Models\TempChoiceModel.cs" />
     <Compile Include="Models\WeatherModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -158,7 +159,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Detail\ParkDetail.cshtml" />
     <Content Include="Views\Shared\PartialWeatherF.cshtml" />
-    <Content Include="Views\Shared\PartialWeatherC.cshtml" />
     <Content Include="Views\Shared\PartialWeather.cshtml" />
     <Content Include="Views\Survey\SurveyView.cshtml" />
     <Content Include="Views\Survey\SurveyResult.cshtml" />

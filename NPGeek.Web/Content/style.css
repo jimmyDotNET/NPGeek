@@ -6,11 +6,21 @@ img#main-logo {
     width: 100%;
 }
 
-a{
-    color: white;
+nav {
+    background-color: black;
 }
 
-img#main-park {
+a{
+    color: white;
+    display: inline-block;
+}
+
+/*ul{
+    width: 10px;
+    display: inline-block;
+}*/
+
+/*img#main-park {
     display: inline-block;
     margin-left: 10px;
     margin-bottom: 20px;
@@ -22,6 +32,10 @@ img#main-park {
     width: 55%;
     
 }
+
+ul {
+    list-style-type: none;
+}*/
 
 /*p#main-description {
     display: inline-block;

@@ -20,51 +20,38 @@ namespace NPGeek.Web.Controllers
         }
 
         // GET: Detail
-        public ActionResult ParkDetail(string id)
+        public ActionResult ParkDetail(string id, string tempChoice)
         {
-            ParkModel park; 
+            
+            TempChoiceModel tcm = new TempChoiceModel();
+            tcm.ParkTempModel = dal.GetParkDetail(id.ToUpper());
+            tcm.TempChoice = tempChoice;
 
-            return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
+            return View("ParkDetail", tcm);
         }
 
-        [HttpPost]
-        public ActionResult ParkDetail(string id, string session)
-        {
-            ParkModel park;
-            Session["Partial_Weather"] = session;
-            return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
-        }
+        //[HttpPost]
+        //public ActionResult ParkDetail(string id, string tempChoice)
+        //{
+        //    ParkModel park;
+        //    Session["tempChoice"] = tempChoice;
+
+        //    return RedirectToAction("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
+        //}
 
         public ActionResult PartialWeatherF(string id)
         {
 
             List<WeatherModel> f = dal2.ParkWeather(id);
-            return View("PartialWeather", f);
+            return PartialView("PartialWeather", f);
         }
 
         public ActionResult PartialWeather(string id)
         {
             List<WeatherModel> f = dal2.ParkWeather(id);
-            return View("PartialWeatherF", f);
+            return PartialView("PartialWeatherF", f);
         }
 
-        ////THIS IS WHERE THE SESSION CODE STARTS
-        //public WeatherModel GetCorrectTemp()
-        //{
-        //    WeatherModel weather = null;
-
-        //    if (Session["Partial_Weather"] == null)
-        //    {
-        //        weather = new WeatherModel();
-        //        Session["Partial_Weather"] = weather;
-        //    }
-
-        //    else
-        //    {
-        //        weather = Session["Partial_Weather"] as WeatherModel;
-        //    }
-
-        //    return weather;
-        //}
+        
     }
 }

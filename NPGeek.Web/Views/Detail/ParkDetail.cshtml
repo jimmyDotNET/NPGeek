@@ -1,70 +1,69 @@
-﻿@model NPGeek.Web.Models.ParkModel
+﻿@model NPGeek.Web.Models.TempChoiceModel
 @{
     ViewBag.Title = "ParkDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section id="parks">
-    <img id="main-park" src="~/Content/@(Model.ParkCode.ToLower()).jpg">
-    <h2>@Model.ParkName (@Model.ParkCode)</h2>
+    <img id="main-park" src="~/Content/@(Model.ParkTempModel.ParkCode.ToLower()).jpg">
+    <h2>@Model.ParkTempModel.ParkName (@Model.ParkTempModel.ParkCode)</h2>
 
     <ul class="detail-fields">
-        <li>Location: @Model.State</li>
-        <li>Acreage: @Model.Acreage</li>
-        <li>Elevation In Feet: @Model.ElevationInFeet</li>
-        <li>Miles of Trails: @Model.MilesOfTrail</li>
-        <li>Number of Campsites: @Model.NumberOfCampsites</li>
-        <li>Climate: @Model.Climate</li>
-        <li>Founded:@Model.YearFounded</li>
-        <li>Annual Visitors: @Model.EntryFee</li>
-        <li>Entry Fee:@Model.NumberOfSpecies</li>
-        <li>Number of Animal Species: @Model.AnnualVisitorCount</li>
-        <li>Inspirational Quote: @Model.InspirationalQuote</li>
-        <li>Quote Source: @Model.QuoteSource</li>
-        <li>Description:@Model.ParkDescription</li>
+        <li>Location: @Model.ParkTempModel.State</li>
+        <li>Acreage: @Model.ParkTempModel.Acreage</li>
+        <li>Elevation In Feet: @Model.ParkTempModel.ElevationInFeet</li>
+        <li>Miles of Trails: @Model.ParkTempModel.MilesOfTrail</li>
+        <li>Number of Campsites: @Model.ParkTempModel.NumberOfCampsites</li>
+        <li>Climate: @Model.ParkTempModel.Climate</li>
+        <li>Founded:@Model.ParkTempModel.YearFounded</li>
+        <li>Annual Visitors: @Model.ParkTempModel.EntryFee</li>
+        <li>Entry Fee:@Model.ParkTempModel.NumberOfSpecies</li>
+        <li>Number of Animal Species: @Model.ParkTempModel.AnnualVisitorCount</li>
+        <li>Inspirational Quote: @Model.ParkTempModel.InspirationalQuote</li>
+        <li>Quote Source: @Model.ParkTempModel.QuoteSource</li>
+        <li>Description:@Model.ParkTempModel.ParkDescription</li>
 
     </ul>
 
-    <form action="@Url.Action("ParkDetail", "Detail")" method="post">
-        <input type="radio" name="sessionC" value="Celcius" /><span>Celcius</span>
-        <input type="radio" name="sessionF" value="Fahrenheit" /><span>Fahrenheit</span>
-        <input type="hidden" name="sessionF" value="PartialWeather">
-        <button>GO!</button>
-    </form>
-
     @*@if (Session["Partial_Weather"] == null)
-    {
+             {
 
-        <form action="@Url.Action("ParkDetail", "Detail")" method="post">
-            <input type="hidden" name="sessionC" value="PartialWeather" />
-            <button name="celsius">View in Celsius</button>
-        </form>
-        @Html.Action("PartialWeatherF");
-    }
-    else
-    {
-        <form action="@Url.Action("ParkDetail", "Detail")" method="post">
-            <input type="hidden" name="sessionF" value="PartialWeatherF">
-            <button name="fahrenheit">View in Fahrenheit</button>
-        </form>
-        @Html.Action("PartialWeather");
-    }*@
+                 <form action="@Url.Action("ParkDetail", "Detail")" method="post">
+                     <input type="hidden" name="sessionC" value="PartialWeather" />
+                     <button name="celsius">View in Celsius</button>
+                 </form>
+                 @Html.Action("PartialWeatherF");
+             }
+             else
+             {
+                 <form action="@Url.Action("ParkDetail", "Detail")" method="post">
+                     <input type="hidden" name="sessionF" value="PartialWeatherF">
+                     <button name="fahrenheit">View in Fahrenheit</button>
+                 </form>
+                 @Html.Action("PartialWeather");
+        }
+          }*@
 
     <form action="@Url.Action("ParkDetail", "Detail")" method="post">
         <input type="hidden" name="session" value="PartialWeather">
-        <button name="" value="Celcius">Celsius</button>
-        <button name="" value="Fahrenheit">Fahrenheit</button>
+        <label for="tempChoice">Select Temperature</label>
+        <select name="tempChoice">
+            <option value="Celcius">Celcius</option>
+            <option value="Fahrenheit">Fahrenheit</option>
+        </select>
+        <button>GO!</button>
     </form>
+    
 
+    @if ((Model.TempChoice != null) && (Model.TempChoice == "Fahrenheit"))
+    {
+        @Html.Action("PartialWeather", new { id = Model.ParkTempModel.ParkCode });
 
-        @if (Session["Partial_Weather"] == null)
-        {
-            @Html.Action("PartialWeatherF");
-        }
-        else
-        {
-            @Html.Action("PartialWeather");
-        }*@
+    }
+    else
+    {
+        @Html.Action("PartialWeatherF", new { id = Model.ParkTempModel.ParkCode });
+    }
 
 
 

@@ -28,18 +28,10 @@ namespace NPGeek.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ParkDetail(string id, string sessionC)
+        public ActionResult ParkDetail(string id, string session)
         {
             ParkModel park;
-            Session["Partial_Weather"] = sessionC;
-            return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
-        }
-
-        [HttpPost]
-        public ActionResult ParkDetail(string id, string sessionF)
-        {
-            ParkModel park;
-            Session["Partial_Weather"] = sessionF;
+            Session["Partial_Weather"] = session;
             return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
         }
 
@@ -47,13 +39,13 @@ namespace NPGeek.Web.Controllers
         {
 
             List<WeatherModel> f = dal2.ParkWeather(id);
-            return View("PartialWeatherF", f);
+            return View("PartialWeather", f);
         }
 
         public ActionResult PartialWeather(string id)
         {
             List<WeatherModel> f = dal2.ParkWeather(id);
-            return View("PartialWeather", f);
+            return View("PartialWeatherF", f);
         }
 
         ////THIS IS WHERE THE SESSION CODE STARTS

@@ -26,7 +26,7 @@
     </ul>
 
 
-    @if (Session["Partial_Weather"] == null)
+    @*@if (Session["Partial_Weather"] == null)
     {
 
         <form action="@Url.Action("ParkDetail", "Detail")" method="post">
@@ -42,7 +42,13 @@
             <button name="fahrenheit">View in Fahrenheit</button>
         </form>
         @Html.Action("PartialWeather");
-    }
+    }*@
+
+    <form action="@Url.Action("ParkDetail", "Detail")" method="post">
+        <input type="hidden" name="session" value="PartialWeather">
+        <button name="" value="Celcius">Celsius</button>
+        <button name="" value="Fahrenheit">Fahrenheit</button>
+    </form>
 
 
     @if (Session["Partial_Weather"] == null)

@@ -2,6 +2,13 @@
 @{
     Layout = null;
     string img = Model[0].Forecast.Replace(" ", "");
+
+    double convertToCelsius(int fahrenheit)
+    {
+        double result = ((fahrenheit) - 32 * 5 / 9);
+
+        return result;
+    }
 }
 
 
@@ -18,7 +25,7 @@
     <p>High @(Model[0].High) F</p>
     <p>Low @(Model[0].Low) F</p>
 
-    @if ((Model[0].High - Model[0].Low) >= 20)
+    @if ((Model[0].High - Model[0].Low) >= convertToCelsius(20))
     {
         <p>Wear breathable layers!</p>
     }
@@ -34,7 +41,7 @@
     {
         <p>Make sure you pack rain gear and wear waterprooof shoes!</p>
     }
-    else if (Model[0].Forecast == "thunderstorms" && Model[0].High > 75 || Model[0].Low > 75)
+    else if (Model[0].Forecast == "thunderstorms" && Model[0].High > convertToCelsius(75) || Model[0].Low > convertToCelsius(75))
     {
         <p>Seek shelter, avoid hiking on exposed ridges and bring an extra gallon of water!</p>
     }
@@ -42,7 +49,7 @@
     {
         <p>Seek shelter and avoid hiking on exposed ridges!</p>
     }
-    else if (Model[0].Forecast == "sunny" && Model[0].High > 75 || Model[0].Low > 75)
+    else if (Model[0].Forecast == "sunny" && Model[0].High > convertToCelsius(75) || Model[0].Low > convertToCelsius(75))
     {
         <p>Make sure you pack sunblock and an extra gallon of water!</p>
     }
@@ -61,11 +68,11 @@
         <p>High @(Model[i].High) F</p>
         <p>Low @(Model[i].Low) F</p>
 
-        if ((Model[i].High - Model[i].Low) >= 20)
+        if ((Model[i].High - Model[i].Low) >= convertToCelsius(20))
         {
             <p>Wear breathable layers!</p>
         }
-        else if (Model[i].Low < 20)
+        else if (Model[i].Low < convertToCelsius(20))
         {
             <p>CAUTION: Frigid temperatures could be dangerous!</p>
         }
@@ -77,7 +84,7 @@
         {
             <p>Make sure you pack rain gear and wear waterprooof shoes!</p>
         }
-        else if (Model[i].Forecast == "thunderstorms" && Model[i].High > 75 || Model[i].Low > 75)
+        else if (Model[i].Forecast == "thunderstorms" && Model[i].High > convertToCelsius(75) || Model[i].Low > convertToCelsius(75))
         {
             <p>Seek shelter, avoid hiking on exposed ridges and bring an extra gallon of water!</p>
         }
@@ -85,7 +92,7 @@
         {
             <p>Seek shelter and avoid hiking on exposed ridges!</p>
         }
-        else if (Model[i].Forecast == "sunny" && Model[i].High > 75 || Model[i].Low > 75)
+        else if (Model[i].Forecast == "sunny" && Model[i].High > convertToCelsius(75) || Model[i].Low > convertToCelsius(75))
         {
             <p>Make sure you pack sunblock and an extra gallon of water!</p>
         }

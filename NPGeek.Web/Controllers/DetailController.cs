@@ -27,22 +27,16 @@ namespace NPGeek.Web.Controllers
             return View("ParkDetail", park = dal.GetParkDetail(id.ToUpper()));
         }
 
+        //public ActionResult PartialWeatherF(string id)
+        //{
+        //    List<WeatherModel> f = dal2.ParkWeather(id);
+        //    return PartialView("PartialWeatherF", f);
+        //}
+
         public ActionResult PartialWeather(string id)
         {
-            List<WeatherModel> f = dal2.ParkWeather(id);
-            return PartialView("PartialWeather", f);
-        }
-
-        public ActionResult PartialWeatherF(string id)
-        {
-            List<WeatherModel> f = dal2.ParkWeather(id);
-            return PartialView("PartialWeather", f);
-        }
-
-        public ActionResult PartialWeatherC(string id)
-        {
-            List<WeatherModel> f = dal2.ParkWeather(id);
-            return PartialView("PartialWeather", f);
+            List<WeatherModel> c = dal2.ParkWeather(id);
+            return PartialView("PartialWeather", c);
         }
     }
 }

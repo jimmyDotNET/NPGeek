@@ -54,7 +54,7 @@
         <p>High @(Model[i].High) F</p>
         <p>Low @(Model[i].Low) F</p>
 
-        @if ((Model[i].High - Model[i].Low) >= 20)
+        if ((Model[i].High - Model[i].Low) >= 20)
         {
             <p>Wear breathable layers!</p>
         }

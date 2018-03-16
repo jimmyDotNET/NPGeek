@@ -21,7 +21,6 @@ namespace NPGeek.Web.Controllers
             this.parkDal = parkDal;
         }
 
-
         public ActionResult SurveyView()
         {
             SurveyModel survey = new SurveyModel();
@@ -43,11 +42,8 @@ namespace NPGeek.Web.Controllers
             return RedirectToAction("SurveyResult");
         }
 
-
-
         public ActionResult SurveyResult(SurveyModel survey)
         {
-
             var favParks = surveyDal.GetSurveyCount();
 
             return View("SurveyResult", favParks);

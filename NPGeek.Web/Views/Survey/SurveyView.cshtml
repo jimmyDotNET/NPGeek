@@ -19,7 +19,7 @@
     @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail" })
     @Html.TextBoxFor(x => x.State, new { placeholder = "Enter your State of Residence" })
     @*@Html.TextBoxFor(x => x.ActivityLevel, new { placeholder = "Enter your activity level" })*@
-    <select>
+    <select name="ActivityLevel">
         <option value="@Model.ActivityLevel">Inactive</option>
         <option value="@Model.ActivityLevel">Sedentary</option>
         <option value="@Model.ActivityLevel">Active</option>

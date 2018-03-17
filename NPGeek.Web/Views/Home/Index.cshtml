@@ -3,17 +3,17 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<section id="parks">
-    @foreach (var park in Model)
-    {
-        <div class="park-image">
-                <a href="@Url.Action("ParkDetail", "Detail",  new { id = park.ParkCode})"><img id="main-park" src="~/Content/@(park.ParkCode).jpg"></a>
-                <div class="main-info">
-                    <h2 id="main-name">@park.ParkName</h2>
-                    <p id="main-description">@park.ParkDescription</p>
-                </div>
-        </div>
-    }
-</section>
-
+<div class="container-fluid">
+    <section id="parks">
+        @foreach (var park in Model)
+        {
+            <div class="park-image col-md-offset-2">
+                <a href="@Url.Action("ParkDetail", "Detail",  new { id = park.ParkCode})"><img id="main-park" class="img-responsive center-block" src="~/Content/@(park.ParkCode).jpg"></a>
+            </div>
+            <div class="main-info col-md-offset-2">
+                <h2 id="main-name" class="text-center">@park.ParkName</h2>
+                <p id="main-description" class="text-center">@park.ParkDescription</p>
+            </div>
+        }
+    </section>
+</div>

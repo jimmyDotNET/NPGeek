@@ -3,29 +3,32 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container">
+    <form action="@Url.Action("SurveyView")" method="post">
 
-<form action="@Url.Action("SurveyView")" method="post">
+        <select name="parkCode">
 
-    <select name="parkCode">
+            @foreach (var park in Model.Parks)
+            {
+                <option value="@park.ParkCode">@park.ParkName</option>
+            }
 
-        @foreach (var park in Model.Parks)
-        {
-            <option value="@park.ParkCode">@park.ParkName</option>
-        }
+        </select>
 
-    </select>
-    
-    @*@Html.DropDownList("selectedPark"x => x.ParkName, new { placeholder = "Enter a park name" })*@
-    @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail" })
-    @Html.TextBoxFor(x => x.State, new { placeholder = "Enter your State of Residence" })
-    @*@Html.TextBoxFor(x => x.ActivityLevel, new { placeholder = "Enter your activity level" })*@
-    <select name="ActivityLevel">
-        <option value="@Model.ActivityLevel">Inactive</option>
-        <option value="@Model.ActivityLevel">Sedentary</option>
-        <option value="@Model.ActivityLevel">Active</option>
-        <option value="@Model.ActivityLevel">Extremely Active</option>
-    </select>
-
-    <button>Submit Survey</button>
-
-</form>
+        <div class="center-block email">
+            @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail" })
+        </div>
+        <div class="center-block state">
+            @Html.TextBoxFor(x => x.State, new { placeholder = "State of Residence" })
+        </div>
+        <div class="center-block activity">
+            <select name="ActivityLevel">
+                <option value="@Model.ActivityLevel">Inactive</option>
+                <option value="@Model.ActivityLevel">Sedentary</option>
+                <option value="@Model.ActivityLevel">Active</option>
+                <option value="@Model.ActivityLevel">Extremely Active</option>
+            </select>
+        </div>
+        <button>Submit Survey</button>
+    </form>
+</div>

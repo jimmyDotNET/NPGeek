@@ -3,11 +3,11 @@
     Layout = null;
     string img = Model[0].Forecast.Replace(" ", "");
 
-    double convertToCelsius(int fahrenheit)
+    int convertToCelsius(int fahrenheit)
     {
         double result = (((fahrenheit) - 32) * .5556);
 
-        return result;
+        return Convert.ToInt32(result);
     }
 }
 

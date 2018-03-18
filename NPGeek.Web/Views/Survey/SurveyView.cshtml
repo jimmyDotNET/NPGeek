@@ -5,13 +5,15 @@
 }
 <div class="container">
     <form action="@Url.Action("SurveyView")" method="post">
-
-        <select name="parkCode">
+        <div id="choose-park">
+            <p>Choose Park:</p>
+        </div>
+        <select id="parkCode-dropdown" name="parkCode">
 
             @foreach (var park in Model.Parks)
-            {
-                <option value="@park.ParkCode">@park.ParkName</option>
-            }
+        {
+            <option value="@park.ParkCode">@park.ParkName</option>
+    }
 
         </select>
 
@@ -21,8 +23,11 @@
         <div class="center-block state">
             @Html.TextBoxFor(x => x.State, new { placeholder = "State of Residence" })
         </div>
+        <div id="activity">
+            <p>Activity Level:</p>
+        </div>
         <div class="center-block activity">
-            <select name="ActivityLevel">
+            <select id="activity-dropdown" name="ActivityLevel">
                 <option value="@Model.ActivityLevel">Inactive</option>
                 <option value="@Model.ActivityLevel">Sedentary</option>
                 <option value="@Model.ActivityLevel">Active</option>

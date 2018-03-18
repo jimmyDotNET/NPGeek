@@ -8,20 +8,24 @@
     <img id="main-park" src="~/Content/@(Model.ParkTempModel.ParkCode.ToLower()).jpg">
     <h2>@Model.ParkTempModel.ParkName (@Model.ParkTempModel.ParkCode)</h2>
 
+    <ul id="quote-info">
+        <li id="quote">"@Model.ParkTempModel.InspirationalQuote"</li>
+        <li id="quote-source">-@Model.ParkTempModel.QuoteSource</li>
+    </ul>
     <ul class="detail-fields">
-        <li>Location: @Model.ParkTempModel.State</li>
-        <li>Acreage: @Model.ParkTempModel.Acreage</li>
-        <li>Elevation In Feet: @Model.ParkTempModel.ElevationInFeet</li>
-        <li>Miles of Trails: @Model.ParkTempModel.MilesOfTrail</li>
-        <li>Number of Campsites: @Model.ParkTempModel.NumberOfCampsites</li>
-        <li>Climate: @Model.ParkTempModel.Climate</li>
-        <li>Founded:@Model.ParkTempModel.YearFounded</li>
-        <li>Annual Visitors: @Model.ParkTempModel.EntryFee</li>
-        <li>Entry Fee:@Model.ParkTempModel.NumberOfSpecies</li>
-        <li>Number of Animal Species: @Model.ParkTempModel.AnnualVisitorCount</li>
-        <li>Inspirational Quote: @Model.ParkTempModel.InspirationalQuote</li>
-        <li>Quote Source: @Model.ParkTempModel.QuoteSource</li>
-        <li>Description:@Model.ParkTempModel.ParkDescription</li>
+        <li><strong>Location:</strong> @Model.ParkTempModel.State</li>
+        <li><strong>Acreage:</strong> @Model.ParkTempModel.Acreage</li>
+        <li><strong>Elevation In Feet:</strong> @Model.ParkTempModel.ElevationInFeet</li>
+        <li><strong>Miles of Trails:</strong> @Model.ParkTempModel.MilesOfTrail</li>
+        <li><strong>Number of Campsites:</strong> @Model.ParkTempModel.NumberOfCampsites</li>
+        <li><strong>Climate:</strong> @Model.ParkTempModel.Climate</li>
+        <li><strong>Founded:</strong> @Model.ParkTempModel.YearFounded</li>
+        <li><strong>Entry Fee:</strong> @Model.ParkTempModel.EntryFee</li>
+        <li><strong>Number of Animal Species:</strong> @Model.ParkTempModel.NumberOfSpecies</li>
+        <li><strong>Annual Visitors:</strong> @Model.ParkTempModel.AnnualVisitorCount</li>
+        <li><img id="backpack" src="~/Content/backpack.png" /></li>
+        <li><strong>Description:</strong> </li>
+        <li>@Model.ParkTempModel.ParkDescription</li>
 
     </ul>
 

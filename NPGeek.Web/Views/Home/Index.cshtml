@@ -4,16 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container-fluid">
-    <section id="parks">
+    <section id="main-parks">
         @foreach (var park in Model)
-        {
-            <div class="park-image col-md-offset-2">
-                <a href="@Url.Action("ParkDetail", "Detail",  new { id = park.ParkCode})"><img id="main-park" class="img-responsive center-block" src="~/Content/@(park.ParkCode).jpg"></a>
-            </div>
-            <div class="main-info col-md-offset-2">
-                <h2 id="main-name" class="text-center">@park.ParkName</h2>
-                <p id="main-description" class="text-center">@park.ParkDescription</p>
-            </div>
-        }
+    {
+
+
+        <a id="park-detail" href="@Url.Action("ParkDetail", "Detail",  new { id = park.ParkCode})"><img id="home-pics" class="img-responsive center-block" src="~/Content/@(park.ParkCode).jpg"></a>
+
+        <div id="main-info">
+            <h2 id="main-name" class="text-center">@park.ParkName</h2>
+            <p id="main-description" class="text-center">@park.ParkDescription</p>
+        </div>
+}
     </section>
 </div>

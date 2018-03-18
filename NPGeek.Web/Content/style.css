@@ -15,16 +15,50 @@ a{
     display: inline-block;
 }
 
-/*ul{
-    width: 10px;
+#main-parks {
+    width: 80%;
+    margin-left: 30%;
+}
+img#home-pics, a#park-detail {
+    vertical-align: top;
+    height: auto;
+    width: 70%;
+    display:inline-block;
+    position: relative;
+  
+    
+}
+
+div#main-info {
     display: inline-block;
-}*/
+    position:inherit;
+    vertical-align: top;
+    
+}
+#main-description, #main-name {
+    text-align: center;
+    width: 50%;
+    /*margin: 0;
+    margin-top: 10px;
+    display: inline-block;
+    bottom: 70%;
+    left: 70%;
+    vertical-align: top;*/
+}
 
 img#main-park {
     vertical-align: top;
-    margin-left: 180px;
     height: auto;
-    width: 70%;
+    width: 60%;
+    margin-left: 20%;
+
+    
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+    margin-right: 0;
 }
 
 .main-info {
@@ -33,8 +67,91 @@ img#main-park {
     height: auto;
     width: 50%;
     padding-bottom: 20px;
+    
 }
 
-#main-description {
+ul#quote-info {
+    list-style-type: none;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+}
 
+li#quote {
+    font-size: 18px;
+    width: 50%;
+    margin-right: 0;
+    margin-left: 25%;
+    margin-bottom: 10px;
+    font-family: 'Pacifico', cursive;
+}
+
+li#quote-source {
+    text-align: right;
+    /*margin-right: 20%;*/
+    text-align: center;
+}
+
+ul.detail-fields {
+    background-color: lightgrey;
+    width: 100%;
+    border: 5px solid black;
+    margin: 0;
+    margin-bottom: 10px;
+    list-style-type: none;
+    padding: 5px;
+}
+ul.detail-fields li {
+    padding: 0;
+}
+
+#backpack {
+    width: 100px;
+    margin-bottom: 20px;
+
+}
+
+.today {
+    display: inline-block;
+    vertical-align: top;
+    height: 300px;
+    margin-right: 20px;
+    float: left;
+
+
+}
+div#days {
+    display: inline-block;
+    position: relative;
+    top: 56px;
+    width: 150px;
+    height: 200px;
+    margin-right: 20px;
+    
+}
+
+#days p {
+    width: 150px;
+}
+
+.today img {
+    width: 100px;
+}
+
+.rest-of-week img {
+    width: 100px;
+}
+
+div.container p {
+    display: inline-block;
+    float: left;
+}
+
+select#parkCode-dropdown, select#activity-dropdown {
+    height: 25.13px;
+}
+
+div.container input#State {
+    display: inline-block;
+    margin-left: 85px;
 }

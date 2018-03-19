@@ -8,32 +8,33 @@
         <div id="choose-park">
             <p>Choose Park:</p>
         </div>
-        <select id="parkCode-dropdown" name="parkCode">
+        <div class="form-group">
+            <select id="parkCode-dropdown" name="parkCode" class="form-control">
 
-            @foreach (var park in Model.Parks)
+                @foreach (var park in Model.Parks)
         {
             <option value="@park.ParkCode">@park.ParkName</option>
-    }
+}
 
-        </select>
-
-        <div class="center-block email">
-            @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail" })
+            </select>
         </div>
-        <div class="center-block state">
-            @Html.TextBoxFor(x => x.State, new { placeholder = "State of Residence" })
+        <div class="center-block email form-group">
+            @Html.TextBoxFor(x => x.Email, new { placeholder = "Enter your e-mail", @class = "form-control" })
         </div>
-        <div id="activity">
+        <div class="center-block state form-group">
+            @Html.TextBoxFor(x => x.State, new { placeholder = "State of Residence", @class = "form-control" })
+        </div>
+        <div id="activity" class="form-group">
             <p>Activity Level:</p>
         </div>
-        <div class="center-block activity">
-            <select id="activity-dropdown" name="ActivityLevel">
+        <div class="center-block activity form-group">
+            <select id="activity-dropdown" name="ActivityLevel" class="form-control">
                 <option value="@Model.ActivityLevel">Inactive</option>
                 <option value="@Model.ActivityLevel">Sedentary</option>
                 <option value="@Model.ActivityLevel">Active</option>
                 <option value="@Model.ActivityLevel">Extremely Active</option>
             </select>
         </div>
-        <button>Submit Survey</button>
+        <button class="btn btn-primary">Submit Survey</button>
     </form>
 </div>

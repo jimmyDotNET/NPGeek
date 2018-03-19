@@ -27,13 +27,17 @@ namespace NPGeek.Web
         {
             var kernel = new StandardKernel();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
             // Map Interfaces to Classes
             //kernel.Bind<interface>().To<class>();
             kernel.Bind<IParkDAL>().To<ParkSqlDAL>();
             kernel.Bind<IWeatherDAL>().To<WeatherSqlDAL>();
             kernel.Bind<ISurveyDAL>().To<SurveySqlDAL>();
+            kernel.Bind<IContext>().ToMethod(ctx => 
+            {
+                var context = new Context();
+
+                return context;
+            });
 
             return kernel;
         }

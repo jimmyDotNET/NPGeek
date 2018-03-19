@@ -152,6 +152,8 @@
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="DAL\Context.cs" />
+    <Compile Include="DAL\IContext.cs" />
     <Compile Include="DAL\IParkDAL.cs" />
     <Compile Include="DAL\ISurveyDAL.cs" />
     <Compile Include="DAL\IWeatherDAL.cs" />

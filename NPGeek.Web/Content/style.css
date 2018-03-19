@@ -147,11 +147,9 @@ div.container p {
     float: left;
 }
 
-select#parkCode-dropdown, select#activity-dropdown {
-    height: 25.13px;
-}
+
 
 div.container input#State {
     display: inline-block;
-    margin-left: 85px;
+   
 }

@@ -10,7 +10,13 @@ namespace NPGeek.Web.DAL
 {
     public class ParkSqlDAL : IParkDAL
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private string connectionString;
+
+        public ParkSqlDAL(IContext context)
+        {
+            connectionString = context.ConnectionString;
+        }
+        
 
         public List<ParkModel> GetAllParks()
         {
